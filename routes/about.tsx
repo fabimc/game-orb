@@ -1,4 +1,3 @@
-
 export default function AboutPage() {
   return (
     <main>
@@ -27,7 +26,15 @@ export default function AboutPage() {
                 <li>
                   <a
                     class="inline-block no-underline hover:text-black hover:underline py-2 px-4"
-                    href="#"
+                    href="/"
+                  >
+                    Games
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="inline-block no-underline hover:text-black hover:underline py-2 px-4"
+                    href="/about"
                   >
                     About
                   </a>
@@ -69,8 +76,20 @@ export default function AboutPage() {
           <nav id="store" class="w-full z-30 top-0 px-6 py-1">
             <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-3">
               <div class="tracking-wide no-underline hover:no-underline text-gray-800 text-xl ">
+                <p>
                   This site simply scraps websites' public shops and group them
                   by Switch "single" games (no steelbooks or CEs).
+                </p>
+
+                <p>
+                  Checkout the &nbsp;
+                  <a
+                    class="text-blue-500 hover:underline hover:text-red-500"
+                    href="https://github.com/fabimc/game-orb"
+                  >
+                    github page
+                  </a>.
+                </p>
               </div>
 
               <div class="flex items-center" id="store-nav-content">
@@ -93,5 +112,5 @@ export default function AboutPage() {
         </div>
       </section>
     </main>
-  )
+  );
 }

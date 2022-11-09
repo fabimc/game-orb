@@ -1,70 +1,73 @@
-import { Handlers, PageProps } from '$fresh/server.ts'
-import { cheerio } from "https://deno.land/x/denocheerio@1.0.0/mod.ts"
+import { Handlers, PageProps } from "$fresh/server.ts";
+import { cheerio } from "https://deno.land/x/denocheerio@1.0.0/mod.ts";
 
 interface Game {
-  image: string
-  name: string
-  price: string
-  url: string
+  image: string;
+  name: string;
+  price: string;
+  url: string;
 }
 
 const sites = {
   superRareGames: {
-    name: 'Super Rare Games',
-    baseUrl: 'https://superraregames.com',
-    url: 'https://superraregames.com/collections/all'
+    name: "Super Rare Games",
+    baseUrl: "https://superraregames.com",
+    url: "https://superraregames.com/collections/all",
   },
   limitedRunGames: {
-    name: 'Limited Run Games',
-    baseUrl: 'https://limitedrungames.com',
-    url: 'https://limitedrungames.com/collections/nintendo-switch-games'
-  }
-}
+    name: "Limited Run Games",
+    baseUrl: "https://limitedrungames.com",
+    url: "https://limitedrungames.com/collections/nintendo-switch-games",
+  },
+};
 
 export const handler: Handlers<Game[]> = {
   async GET(_, ctx) {
-    const superRareGamesResponse = await fetch(sites.superRareGames.url)
+    const superRareGamesResponse = await fetch(sites.superRareGames.url);
 
     if (superRareGamesResponse.status === 404) {
-      return ctx.render([])
+      return ctx.render([]);
     }
 
-    const superRareGamesText = await superRareGamesResponse.text()
+    const superRareGamesText = await superRareGamesResponse.text();
 
     const superRareGames = getSuperRareGames(
       superRareGamesText,
-      sites.superRareGames.baseUrl
-    )
+      sites.superRareGames.baseUrl,
+    );
 
-    return ctx.render(superRareGames)
-  }
-}
+    return ctx.render(superRareGames);
+  },
+};
 
 const getSuperRareGames = (webpage: string, baseUrl: string): Game[] => {
-  const $ = cheerio.load(webpage)
+  const $ = cheerio.load(webpage);
 
   const gamesSelector = $(
-    '.product-collection :has(.img-wrap > .img-container img.rotateShadow[alt^="SRG#"])'
-  )
+    '.product-collection :has(.img-wrap > .img-container img.rotateShadow[alt^="SRG#"])',
+  );
 
   return gamesSelector
     .map((_i, el) => {
       const imageSelector = $(el)
         .find('.img-wrap > .img-container img.rotateShadow[alt^="SRG#"]')
-        .first()
-      const name = imageSelector.attr('alt') || ''
-      const image = imageSelector.attr('src') || ''
-      const url = baseUrl + $(el).find('.img-wrap > .img-container > a').first().attr('href') || ''
-      const price = $(el).parent().parent().find('.money').first().text() || ''
+        .first();
+      const name = imageSelector.attr("alt") || "";
+      const image = imageSelector.attr("src") || "";
+      const url =
+        baseUrl +
+          $(el).find(".img-wrap > .img-container > a").first().attr("href") ||
+        "";
+      const price = $(el).parent().parent().find(".money").first().text() || "";
 
-      return { name, image, url, price }
+      return { name, image, url, price };
     })
-    .get()
-}
+    .get();
+};
 
 export default function Home({ data }: PageProps<Game[]>) {
   if (!data) {
-    return <h1>Page not found</h1>
+    return <h1>Page not found</h1>;
   }
   return (
     <div>
@@ -90,6 +93,14 @@ export default function Home({ data }: PageProps<Game[]>) {
           >
             <nav>
               <ul class="md:flex items-center justify-between text-base text-gray-700 pt-4 md:pt-0">
+                <li>
+                  <a
+                    class="inline-block no-underline hover:text-black hover:underline py-2 px-4"
+                    href="/"
+                  >
+                    Games
+                  </a>
+                </li>
                 <li>
                   <a
                     class="inline-block no-underline hover:text-black hover:underline py-2 px-4"
@@ -165,13 +176,15 @@ export default function Home({ data }: PageProps<Game[]>) {
                 <img class="hover:shadow-lg" src={game.image} />
                 <div class="pt-3 flex items-center justify-between">
                   <p class="">{game.name}</p>
-                  {/* <svg
+                  {
+                    /* <svg
                 class="h-6 w-6 fill-current text-gray-500 hover:text-black"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
               >
                 <path d="M12,4.595c-1.104-1.006-2.512-1.558-3.996-1.558c-1.578,0-3.072,0.623-4.213,1.758c-2.353,2.363-2.352,6.059,0.002,8.412 l7.332,7.332c0.17,0.299,0.498,0.492,0.875,0.492c0.322,0,0.609-0.163,0.792-0.409l7.415-7.415 c2.354-2.354,2.354-6.049-0.002-8.416c-1.137-1.131-2.631-1.754-4.209-1.754C14.513,3.037,13.104,3.589,12,4.595z M18.791,6.205 c1.563,1.571,1.564,4.025,0.002,5.588L12,18.586l-6.793-6.793C3.645,10.23,3.646,7.776,5.205,6.209 c0.76-0.756,1.754-1.172,2.799-1.172s2.035,0.416,2.789,1.17l0.5,0.5c0.391,0.391,1.023,0.391,1.414,0l0.5-0.5 C14.719,4.698,17.281,4.702,18.791,6.205z" />
-              </svg> */}
+              </svg> */
+                  }
                 </div>
                 <p class="pt-1 text-gray-900">{game.price}</p>
               </a>
@@ -180,5 +193,5 @@ export default function Home({ data }: PageProps<Game[]>) {
         </div>
       </section>
     </div>
-  )
+  );
 }
