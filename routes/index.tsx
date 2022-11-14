@@ -112,10 +112,7 @@ const getSpecialReserveGames = (webpage: string, baseUrl: string): Game[] => {
         .first()
       const name = imageSelector.attr('alt') || ''
       const image = imageSelector.attr('data-src') || ''
-      const url =
-        baseUrl +
-          $(el).find('.img-wrap > .img-container > a').first().attr('href') ||
-        ''
+      const url = $(el).find('a').first().attr('href') || ''
       const price =
         $(el).parent().parent().find('.price--main').first().text() || ''
 
