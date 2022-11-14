@@ -77,7 +77,7 @@ export default function AboutPage() {
             <div class='w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-3'>
               <div class='tracking-wide no-underline hover:no-underline text-gray-800 text-xl '>
                 <p>
-                  This site simply scraps websites' public shops and group them
+                  This site simply scraps websites' public shops and groups them
                   by Switch "single" games (no steelbooks or CEs).
                 </p>
 
