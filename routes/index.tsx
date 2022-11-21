@@ -295,6 +295,19 @@ export default function Home({ data }: PageProps<GameStores>) {
           ))}
         </div>
       </section>
+
+      <footer class='text-gray-100'>
+        <div class='container px-5 py-8 mx-auto flex flex-col items-center space-y-4'>
+          <a href='https://fresh.deno.dev'>
+            <img
+              width='197'
+              height='37'
+              src='https://fresh.deno.dev/fresh-badge-dark.svg'
+              alt='Made with Fresh'
+            />
+          </a>
+        </div>
+      </footer>
     </div>
   )
 }
