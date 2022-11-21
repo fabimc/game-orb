@@ -98,16 +98,15 @@ const getSuperRareGames = (webpage: string, baseUrl: string): Game[] => {
 
 const getSpecialReserveGames = (webpage: string, baseUrl: string): Game[] => {
   const $ = cheerio.load(webpage)
-
   const gamesSelector = $(
-    '.card-wrapper :has(.card-figure > a > .card-img-container > .card-image-wrapper > .card-image[alt$="[SWITCH SINGLE]"])'
+    '.card-wrapper :has(.card-figure > a > .card-img-container > .card-image[alt$="[SWITCH SINGLE]"])'
   )
 
   return gamesSelector
     .map((_i, el) => {
       const imageSelector = $(el)
         .find(
-          '.card-figure > a > .card-img-container > .card-image-wrapper > .card-image[alt$="[SWITCH SINGLE]"]'
+          '.card-figure > a > .card-img-container > .card-image[alt$="[SWITCH SINGLE]"]'
         )
         .first()
       const name = imageSelector.attr('alt') || ''
