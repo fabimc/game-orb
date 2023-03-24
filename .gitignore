@@ -105,3 +105,6 @@ dist
 
 # IDE
 .vscode/
+
+# MacOS
+.DS_Store
