@@ -1,12 +1,6 @@
 import { HandlerContext } from '$fresh/server.ts'
 import { cheerio } from 'https://deno.land/x/denocheerio@1.0.0/mod.ts'
-
-interface Game {
-  image: string
-  name: string
-  price: string
-  url: string
-}
+import { Game } from '../../types/game.type.ts'
 
 const getGames = async () => {
   const superRareGamesResponse = await fetch(

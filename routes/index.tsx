@@ -1,4 +1,4 @@
-import Games from "../islands/Games.tsx";
+import Games from '../islands/Games.tsx'
 
 const sites = {
   superRareGames: {
@@ -70,11 +70,8 @@ export default function Home() {
       </nav>
       <section class='bg-white py-8'>
         <div class='container mx-auto flex items-center flex-wrap pt-4 pb-12'>
-          <div>
-            
-          </div>
           <nav class='w-full z-30 top-0 px-6 py-1'>
-            <div class='w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-3'>
+            <div class='w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-3'>
               <a
                 class='uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl '
                 href={sites.superRareGames.siteUrl}
@@ -87,7 +84,7 @@ export default function Home() {
           <Games url={sites.superRareGames.apiUrl} />
 
           <nav class='w-full z-30 top-0 px-6 py-1'>
-            <div class='w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-3'>
+            <div class='w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-3'>
               <a
                 class='uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl '
                 href={sites.specialReserveGames.siteUrl}
@@ -106,7 +103,7 @@ export default function Home() {
             <img
               width='197'
               height='37'
-              src='https://fresh.deno.dev/fresh-badge-dark.svg'
+              src='https://fresh.deno.dev/fresh-badge.svg'
               alt='Made with Fresh'
             />
           </a>

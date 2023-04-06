@@ -224,5 +224,36 @@
     "https://esm.sh/v96/twind@0.16.17/deno/twind.js": "6429fa2b7dd876c3ca55180dc7b12e9364ac46afdbecf21ae2a9e17c4a98c94f",
     "https://esm.sh/v96/twind@0.16.17/sheets/sheets.d.ts": "0142f8ccfda2f47363add69dfa8f500d1ff23a660cf8a4eb6d42de2f2e986c68",
     "https://esm.sh/v96/twind@0.16.17/twind.d.ts": "6aaf0396186c5b0b23ec9e9f1ed6e1441813fb215e9b2c06a175573f3436cc7f"
+  },
+  "npm": {
+    "specifiers": {
+      "react-loading-skeleton@3": "react-loading-skeleton@3.2.0",
+      "react-loading-skeleton@3.2.0": "react-loading-skeleton@3.2.0",
+      "react-loading-skeleton@^3": "react-loading-skeleton@3.2.0"
+    },
+    "packages": {
+      "js-tokens@4.0.0": {
+        "integrity": "sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==",
+        "dependencies": {}
+      },
+      "loose-envify@1.4.0": {
+        "integrity": "sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==",
+        "dependencies": {
+          "js-tokens": "js-tokens@4.0.0"
+        }
+      },
+      "react-loading-skeleton@3.2.0": {
+        "integrity": "sha512-kN12x4Ud69jbksr2EdhYywAFeW4bPdvFQ9p3ID1OM/QeFjgwFSmSUY2a6P6uOb5ACzWp3ozY8C+7+04KR6+PHA==",
+        "dependencies": {
+          "react": "react@18.2.0"
+        }
+      },
+      "react@18.2.0": {
+        "integrity": "sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==",
+        "dependencies": {
+          "loose-envify": "loose-envify@1.4.0"
+        }
+      }
+    }
   }
 }
