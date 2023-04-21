@@ -20,7 +20,7 @@ export default function Games(props: GamesProps) {
   const [gamesByBrand, setGamesByBrand] = useState<Game[]>([])
 
   useEffect(() => {
-    (async () => {
+    ;(async () => {
       const games = await getGames(props.url)
       setGamesByBrand(games)
     })()
