@@ -2,6 +2,8 @@ import { HandlerContext } from '$fresh/server.ts'
 import { cheerio } from 'https://deno.land/x/denocheerio@1.0.0/mod.ts'
 import { Game } from '../../types/game.type.ts'
 
+const siteUrl = 'https://signatureeditiongames.com'
+
 const getGames = async () => {
   const signatureEditionGamesResponses = await getSignatureEditionGamesResponses()
   const signatureEditionGamesTexts = await getSignatureEditionGamesTexts(
@@ -13,8 +15,8 @@ const getGames = async () => {
 }
 
 const getSignatureEditionGamesResponses = async () => {
-  const firstPageResponse = await fetch('https://signatureeditiongames.com/collections/featured-switch')
-  const secondPageResponse = await fetch('https://signatureeditiongames.com/collections/featured-switch?page=2&sort_by=manual')
+  const firstPageResponse = await fetch(`${siteUrl}/collections/featured-switch`)
+  const secondPageResponse = await fetch(`${siteUrl}/collections/featured-switch?page=2&sort_by=manual`)
 
   return { firstPageResponse, secondPageResponse }
 }
@@ -38,7 +40,7 @@ const mapGames = (webpage: string): Game[] => {
       const name = $(el).find('.product-head > .product-image > .product-group-vendor-name').text()
       const imageNoScriptText = $(el).find('.product-head > .product-image > .featured-img span noscript').text()
       const image = extractImageSrc(imageNoScriptText)
-      const url = 'https://signatureeditiongames.com' + $(el).find('.product-head > .product-image > .product-group-vendor-name > .product-name > a').first().attr('href') || ''
+      const url = siteUrl + $(el).find('.product-head > .product-image > .product-group-vendor-name > .product-name > a').first().attr('href') || ''
       const price = $(el).find('.product-content > .pc-inner > .price-cart-wrapper > .product-price').text()
 
       return { name, image, url, price }

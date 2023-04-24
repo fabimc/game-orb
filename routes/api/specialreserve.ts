@@ -2,8 +2,8 @@ import { HandlerContext } from '$fresh/server.ts'
 import { cheerio } from 'https://deno.land/x/denocheerio@1.0.0/mod.ts'
 import { Game } from '../../types/game.type.ts'
 
-const getGames = async () => {
-  const specialReserveGamesResponses = await getSpecialReserveGamesResponses()
+const getGames = async (siteUrl: string) => {
+  const specialReserveGamesResponses = await getSpecialReserveGamesResponses(siteUrl)
   const specialReserveGamesTexts = await getSpecialReserveGamesTexts(
     specialReserveGamesResponses.firstPageResponse,
     specialReserveGamesResponses.secondPageResponse
@@ -12,9 +12,9 @@ const getGames = async () => {
   return [...mapGames(specialReserveGamesTexts.firstPageText), ...mapGames(specialReserveGamesTexts.secondPageText)]
 }
 
-const getSpecialReserveGamesResponses = async () => {
-  const firstPageResponse = await fetch('https://specialreservegames.com/games')
-  const secondPageResponse = await fetch('https://specialreservegames.com/games/?sort=featured&page=2&limit=12')
+const getSpecialReserveGamesResponses = async (siteUrl: string) => {
+  const firstPageResponse = await fetch(`${siteUrl}/games`)
+  const secondPageResponse = await fetch(`${siteUrl}/games/?sort=featured&page=2&limit=12`)
 
   return { firstPageResponse, secondPageResponse }
 }
@@ -44,6 +44,8 @@ const mapGames = (webpage: string): Game[] => {
 }
 
 export const handler = async (_req: Request, _ctx: HandlerContext): Promise<Response> => {
-  const games = await getGames()
+  const siteUrl = 'https://specialreservegames.com'
+  const games = await getGames(siteUrl)
+  
   return Response.json(games)
 }

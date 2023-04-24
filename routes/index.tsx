@@ -6,20 +6,20 @@ const sites = {
     siteUrl: 'https://superraregames.com',
     apiUrl: 'api/superrare'
   },
-  limitedRunGames: {
-    name: 'Limited Run Games',
-    siteUrl: 'https://limitedrungames.com',
-    apiUrl: 'https://limitedrungames.com/collections/nintendo-switch-games'
+  signatureEditionGames: {
+    name: 'Signature Edition Games',
+    siteUrl: 'https://signatureeditiongames.com',
+    apiUrl: 'api/signatureedition'
   },
   specialReserveGames: {
     name: 'Special Reserve Games',
     siteUrl: 'https://specialreservegames.com',
     apiUrl: 'api/specialreserve'
   },
-  signatureEditionGames: {
-    name: 'Signature Edition Games',
-    siteUrl: 'https://signatureeditiongames.com',
-    apiUrl: 'api/signatureedition'
+  limitedRunGames: {
+    name: 'Limited Run Games',
+    siteUrl: 'https://limitedrungames.com',
+    apiUrl: 'https://limitedrungames.com/collections/nintendo-switch-games'
   }
 }
 
@@ -65,31 +65,30 @@ export default function Home() {
         <div class='container mx-auto flex items-center flex-wrap pt-4 pb-12'>
           <nav class='w-full z-30 top-0 px-6 py-1'>
             <div class='w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-3'>
-              <a class='uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-2xl ' href={sites.superRareGames.siteUrl}>
-              {sites.superRareGames.name}
+              <a class='uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-2xl' href={sites.superRareGames.siteUrl}>
+                {sites.superRareGames.name}
               </a>
             </div>
           </nav>
-
           <Games url={sites.superRareGames.apiUrl} />
 
           <nav class='w-full z-30 top-0 px-6 py-1'>
             <div class='w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-3'>
-              <a class='uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-2xl ' href={sites.specialReserveGames.siteUrl}>
-              {sites.specialReserveGames.name}
-              </a>
-            </div>
-          </nav>
-          <Games url={sites.specialReserveGames.apiUrl} />
-
-          <nav class='w-full z-30 top-0 px-6 py-1'>
-            <div class='w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-3'>
-              <a class='uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl ' href={sites.signatureEditionGames.siteUrl}>
+              <a class='uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-2xl' href={sites.signatureEditionGames.siteUrl}>
                 {sites.signatureEditionGames.name}
               </a>
             </div>
           </nav>
           <Games url={sites.signatureEditionGames.apiUrl} />
+
+          <nav class='w-full z-30 top-0 px-6 py-1'>
+            <div class='w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-3'>
+              <a class='uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-2xl' href={sites.specialReserveGames.siteUrl}>
+                {sites.specialReserveGames.name}
+              </a>
+            </div>
+          </nav>
+          <Games url={sites.specialReserveGames.apiUrl} />
         </div>
       </section>
 
