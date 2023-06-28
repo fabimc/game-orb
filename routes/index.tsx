@@ -19,7 +19,7 @@ const sites = {
   limitedRunGames: {
     name: 'Limited Run Games',
     siteUrl: 'https://limitedrungames.com',
-    apiUrl: 'https://limitedrungames.com/collections/nintendo-switch-games'
+    apiUrl: 'api/limitedrun'
   }
 }
 
@@ -89,6 +89,16 @@ export default function Home() {
             </div>
           </nav>
           <Games url={sites.specialReserveGames.apiUrl} />
+
+          <nav class='w-full z-30 top-0 px-6 py-1'>
+            <div class='w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-3'>
+              <a class='uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-2xl' href={sites.specialReserveGames.siteUrl}>
+                {sites.limitedRunGames.name}
+              </a>
+            </div>
+          </nav>
+          <Games url={sites.limitedRunGames.apiUrl} />
+
         </div>
       </section>
 

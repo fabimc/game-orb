@@ -5,20 +5,22 @@
 import config from "./deno.json" assert { type: "json" };
 import * as $0 from "./routes/[name].tsx";
 import * as $1 from "./routes/about.tsx";
-import * as $2 from "./routes/api/signatureedition.ts";
-import * as $3 from "./routes/api/specialreserve.ts";
-import * as $4 from "./routes/api/superrare.ts";
-import * as $5 from "./routes/index.tsx";
+import * as $2 from "./routes/api/limitedrun.ts";
+import * as $3 from "./routes/api/signatureedition.ts";
+import * as $4 from "./routes/api/specialreserve.ts";
+import * as $5 from "./routes/api/superrare.ts";
+import * as $6 from "./routes/index.tsx";
 import * as $$0 from "./islands/Games.tsx";
 
 const manifest = {
   routes: {
     "./routes/[name].tsx": $0,
     "./routes/about.tsx": $1,
-    "./routes/api/signatureedition.ts": $2,
-    "./routes/api/specialreserve.ts": $3,
-    "./routes/api/superrare.ts": $4,
-    "./routes/index.tsx": $5,
+    "./routes/api/limitedrun.ts": $2,
+    "./routes/api/signatureedition.ts": $3,
+    "./routes/api/specialreserve.ts": $4,
+    "./routes/api/superrare.ts": $5,
+    "./routes/index.tsx": $6,
   },
   islands: {
     "./islands/Games.tsx": $$0,
