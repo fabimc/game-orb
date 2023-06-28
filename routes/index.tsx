@@ -63,42 +63,13 @@ export default function Home() {
       </nav>
       <section class='bg-white py-8'>
         <div class='container mx-auto flex items-center flex-wrap pt-4 pb-12'>
-          <nav class='w-full z-30 top-0 px-6 py-1'>
-            <div class='w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-3'>
-              <a class='uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-2xl' href={sites.superRareGames.siteUrl}>
-                {sites.superRareGames.name}
-              </a>
-            </div>
-          </nav>
-          <Games url={sites.superRareGames.apiUrl} />
+          <Games name={sites.superRareGames.name} apiUrl={sites.superRareGames.apiUrl} siteUrl={sites.superRareGames.siteUrl} />
 
-          <nav class='w-full z-30 top-0 px-6 py-1'>
-            <div class='w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-3'>
-              <a class='uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-2xl' href={sites.signatureEditionGames.siteUrl}>
-                {sites.signatureEditionGames.name}
-              </a>
-            </div>
-          </nav>
-          <Games url={sites.signatureEditionGames.apiUrl} />
+          <Games name={sites.signatureEditionGames.name} apiUrl={sites.signatureEditionGames.apiUrl} siteUrl={sites.signatureEditionGames.siteUrl} />
 
-          <nav class='w-full z-30 top-0 px-6 py-1'>
-            <div class='w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-3'>
-              <a class='uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-2xl' href={sites.specialReserveGames.siteUrl}>
-                {sites.specialReserveGames.name}
-              </a>
-            </div>
-          </nav>
-          <Games url={sites.specialReserveGames.apiUrl} />
+          <Games name={sites.specialReserveGames.name} apiUrl={sites.specialReserveGames.apiUrl} siteUrl={sites.specialReserveGames.siteUrl} />
 
-          <nav class='w-full z-30 top-0 px-6 py-1'>
-            <div class='w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-3'>
-              <a class='uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-2xl' href={sites.specialReserveGames.siteUrl}>
-                {sites.limitedRunGames.name}
-              </a>
-            </div>
-          </nav>
-          <Games url={sites.limitedRunGames.apiUrl} />
-
+          <Games name={sites.limitedRunGames.name} apiUrl={sites.limitedRunGames.apiUrl} siteUrl={sites.limitedRunGames.siteUrl} />
         </div>
       </section>
 

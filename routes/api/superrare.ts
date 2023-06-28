@@ -15,10 +15,9 @@ const getGames = async (siteUrl: string) => {
 
 const mapGames = (webpage: string, siteUrl: string): Game[] => {
   const $ = cheerio.load(webpage)
-
   const gamesSelector = $('.product-collection :has(.img-wrap > .img-container img.rotateShadow[alt^="SRG#"])')
 
-  return gamesSelector
+  const games = gamesSelector
     .map((_i: number, el: cheerio.Element) => {
       const imageSelector = $(el).find('.img-wrap > .img-container img.rotateShadow[alt^="SRG#"]').first()
       const name = imageSelector.attr('alt') || ''
@@ -29,6 +28,9 @@ const mapGames = (webpage: string, siteUrl: string): Game[] => {
       return { name, image, url, price }
     })
     .get()
+
+    // removes duplicates
+    return [...new Map(games.map((game) => [game.name, game])).values()];
 }
 
 export const handler = async (_req: Request, _ctx: HandlerContext): Promise<Response> => {
