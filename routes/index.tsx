@@ -20,6 +20,11 @@ const sites = {
     name: 'Limited Run Games',
     siteUrl: 'https://limitedrungames.com',
     apiUrl: 'api/limitedrun'
+  },
+  strictlyLimitedGames: {
+    name: 'Strictly Limited Games',
+    siteUrl: 'https://strictlylimitedgames.com',
+    apiUrl: 'api/strictlylimited'
   }
 }
 
@@ -63,6 +68,8 @@ export default function Home() {
       </nav>
       <section class='bg-white py-8'>
         <div class='container mx-auto flex items-center flex-wrap pt-4 pb-12'>
+          <Games name={sites.strictlyLimitedGames.name} apiUrl={sites.strictlyLimitedGames.apiUrl} siteUrl={sites.strictlyLimitedGames.siteUrl} />
+
           <Games name={sites.superRareGames.name} apiUrl={sites.superRareGames.apiUrl} siteUrl={sites.superRareGames.siteUrl} />
 
           <Games name={sites.signatureEditionGames.name} apiUrl={sites.signatureEditionGames.apiUrl} siteUrl={sites.signatureEditionGames.siteUrl} />
