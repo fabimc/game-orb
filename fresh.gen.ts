@@ -8,8 +8,9 @@ import * as $1 from "./routes/about.tsx";
 import * as $2 from "./routes/api/limitedrun.ts";
 import * as $3 from "./routes/api/signatureedition.ts";
 import * as $4 from "./routes/api/specialreserve.ts";
-import * as $5 from "./routes/api/superrare.ts";
-import * as $6 from "./routes/index.tsx";
+import * as $5 from "./routes/api/strictlylimited.ts";
+import * as $6 from "./routes/api/superrare.ts";
+import * as $7 from "./routes/index.tsx";
 import * as $$0 from "./islands/Games.tsx";
 
 const manifest = {
@@ -19,8 +20,9 @@ const manifest = {
     "./routes/api/limitedrun.ts": $2,
     "./routes/api/signatureedition.ts": $3,
     "./routes/api/specialreserve.ts": $4,
-    "./routes/api/superrare.ts": $5,
-    "./routes/index.tsx": $6,
+    "./routes/api/strictlylimited.ts": $5,
+    "./routes/api/superrare.ts": $6,
+    "./routes/index.tsx": $7,
   },
   islands: {
     "./islands/Games.tsx": $$0,
