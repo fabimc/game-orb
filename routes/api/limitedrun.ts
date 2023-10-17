@@ -15,20 +15,28 @@ const getGames = async (siteUrl: string) => {
 
 const mapGames = (webpage: string, siteUrl: string): Game[] => {
   const $ = cheerio.load(webpage)
-  const gamesSelector = $('.collection__wrap .product--default')
+  const gamesSelector = $('.collection__list .product--default')
 
   return gamesSelector
     .map((_i: number, el: cheerio.Element) => {
-      const imageSelector = $(el).find('.product__image > a > img').first()
+      const imagesSelector = $(el).find('.product__image').first()
+
+      if (!imagesSelector || imagesSelector.length === 0) {
+        return null
+      }
+
+      const imageSelector = $(imagesSelector[0]).find('img').first()
+      const infoSelector = $(el).find('.product__info').first()
+
       const name = imageSelector.attr('alt') || ''
       const image = imageSelector.attr('src') || ''
-      const url = siteUrl + $(el).find('.product__image > a').first().attr('href') || ''
-      const price = $(el).find('.product__info > .price').first().text() || ''
+      const url = siteUrl + $(infoSelector).parent().attr('href') || ''
+      const price = $(infoSelector).find('.price').first().text() || ''
 
       return { name, image, url, price }
     })
     .get()
-    .filter((game: Game) => Number(game.price.trimStart().slice(1)) < 50)
+    .filter((game: Game) => Number(game?.price.trimStart().slice(1)) < 50)
 }
 
 export const handler = async (_req: Request, _ctx: HandlerContext): Promise<Response> => {
