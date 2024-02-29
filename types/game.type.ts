@@ -1,4 +1,4 @@
-export type Game = {
+export interface Game {
   image: string
   name: string
   price: string

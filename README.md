@@ -1,10 +1,13 @@
-# Game Orb
-This site simply scraps websites' public shops and group them by Switch "single" games (no steelbooks or CEs).
-## fresh project
+# Fresh project
+
+Your new Fresh project is ready to go. You can follow the Fresh "Getting
+Started" guide here: https://fresh.deno.dev/docs/getting-started
 
 ### Usage
 
-Start the project:
+Make sure to install Deno: https://deno.land/manual/getting_started/installation
+
+Then start the project:
 
 ```
 deno task start
