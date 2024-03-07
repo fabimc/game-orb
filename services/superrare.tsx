@@ -22,7 +22,7 @@ const mapGames = (webpage: string, siteUrl: string) => {
 
   const singles = games.filter((game) => game.name.startsWith('SRG#'))
 
-  return singles
+  return singles as Game[]
 }
 
 export const getGames = async () => {
