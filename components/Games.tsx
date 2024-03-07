@@ -1,6 +1,5 @@
 import { getGames } from '../services/superrare.tsx'
 
-
 export default async function Games() {
   const games = await getGames()
   return (
