@@ -11,7 +11,6 @@ const JOKES = [
   "Why are assembly programmers often wet? They work below C level.",
   "My favourite computer based band is the Black IPs.",
   "What programme do you use to predict the music tastes of former US presidential candidates? An Al Gore Rhythm.",
-  "An SEO expert walked into a bar, pub, inn, tavern, hostelry, public house.",
 ];
 
 export const handler = (_req: Request, _ctx: FreshContext): Response => {
