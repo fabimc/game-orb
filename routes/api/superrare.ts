@@ -1,6 +1,6 @@
-import { FreshContext } from "$fresh/server.ts";
+import { FreshContext } from '$fresh/server.ts'
 
-const getUrl = (brand: string) => { 
+const getUrl = (brand: string) => {
   switch (brand) {
     case 'superrare':
       return 'https://superraregames.com/collections/featured'
@@ -21,8 +21,8 @@ const getGames = async (brand: string): Promise<string> => {
   }
 }
 
-export const handler = async (_req: Request, ctx: FreshContext): Promise<Response> => {
-  const games = await getGames(ctx.params.name as string)
+export const handler = async (_req: Request, _ctx: FreshContext): Promise<Response> => {
+  const games = await getGames('superrare')
 
   return new Response(games)
 }
