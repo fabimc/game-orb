@@ -1,7 +1,6 @@
-import { getGames as getSuperRareGames } from '../services/superrare.tsx'
+import Games from '../islands/Games.tsx'
 
-export default async function Home() {
-  const superRareGames = await getSuperRareGames()
+export default function Home() {
 
   return (
     <div class='bg-white text-gray-600 work-sans leading-normal text-base tracking-normal'>
@@ -28,20 +27,7 @@ export default async function Home() {
               </a>
             </div>
           </nav>
-
-          {superRareGames.map((game) => (
-            <div class='w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col'>
-              <a href={game.url}>
-                <img class='hover:grow hover:shadow-lg' src={game.image} />
-                <div class='pt-3 flex items-center justify-between'>
-                  <p class='bg-gradient-to-r from-green-200 to-green-100 bg-[length:0px_10px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500 hover:bg-[length:100%_3px] group-hover:bg-[length:100%_10px] dark:from-purple-800 dark:to-purple-900'>
-                    {game.name}
-                  </p>
-                </div>
-                <p class='pt-1 text-gray-900'>{game.price}</p>
-              </a>
-            </div>
-          ))}
+          <Games brand='superrare' />
         </div>
       </section>
 

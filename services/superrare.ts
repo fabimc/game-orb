@@ -26,13 +26,15 @@ const mapGames = (webpage: string, siteUrl: string) => {
 }
 
 export const getGames = async () => {
-  const superRareGamesResponse = await fetch(`${superRareUrl}/collections/featured`)
-
-  if (superRareGamesResponse.status === 404) {
+  try {
+    const superRareGamesResponse = await fetch('api/superrare')
+    const superRareGamesText = await superRareGamesResponse.text()
+    const superRareGames = mapGames(superRareGamesText, superRareUrl)
+  
+    return superRareGames
+  } catch (error) {
+    console.error('Error fetching SuperRare Games', error)
     return []
   }
-  const superRareGamesText = await superRareGamesResponse.text()
-  const superRareGames = mapGames(superRareGamesText, superRareUrl)
-
-  return superRareGames
+  
 }

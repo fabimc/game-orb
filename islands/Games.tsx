@@ -1,7 +1,21 @@
-import { getGames } from '../services/superrare.tsx'
+import { useEffect, useState } from 'preact/hooks'
+import { getGames } from '../services/games.ts'
+import { Game } from "../types/game.type.ts";
 
-export default async function Games() {
-  const games = await getGames()
+type GamesProps = {
+  brand: string
+}
+
+export default function Games(props: GamesProps) {
+  const [games, setGames] = useState<Game[]>([])
+
+  useEffect(() => {
+    ;(async () => {
+      const games = await getGames(props.brand)
+      setGames(games)
+    })()
+  }, [])
+
   return (
     <>
       {games.map((game) => (
