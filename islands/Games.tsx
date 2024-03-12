@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'preact/hooks'
-import { getGames } from '../services/games.ts'
 import { Game } from '../types/game.type.ts'
+import GameSkeleton from "../components/GameSkeleton.tsx"
 
 type GamesProps = {
   brand: string
@@ -11,13 +11,15 @@ export default function Games(props: GamesProps) {
 
   useEffect(() => {
     ;(async () => {
-      const games = await getGames(props.brand)
-      setGames(games)
+      const response = await fetch(`api/games/${props.brand}`)
+      const gamesData = await response.json() as Game[]
+      setGames(gamesData)
     })()
   }, [])
 
   return (
     <>
+      {games.length === 0 && <GameSkeleton />}
       {games.map((game) => (
         <div class='w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col'>
           <a href={game.url}>

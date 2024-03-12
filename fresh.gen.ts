@@ -5,7 +5,7 @@
 import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
 import * as $_middleware from "./routes/_middleware.ts";
-import * as $api_superrare from "./routes/api/superrare.ts";
+import * as $api_games_brand_ from "./routes/api/games/[brand].ts";
 import * as $greet_name_ from "./routes/greet/[name].tsx";
 import * as $index from "./routes/index.tsx";
 import * as $Games from "./islands/Games.tsx";
@@ -16,7 +16,7 @@ const manifest = {
     "./routes/_404.tsx": $_404,
     "./routes/_app.tsx": $_app,
     "./routes/_middleware.ts": $_middleware,
-    "./routes/api/superrare.ts": $api_superrare,
+    "./routes/api/games/[brand].ts": $api_games_brand_,
     "./routes/greet/[name].tsx": $greet_name_,
     "./routes/index.tsx": $index,
   },

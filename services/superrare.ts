@@ -27,7 +27,7 @@ const mapGames = (webpage: string, siteUrl: string) => {
 
 export const getGames = async () => {
   try {
-    const superRareGamesResponse = await fetch('api/superrare')
+    const superRareGamesResponse = await fetch(`${superRareUrl}/collections/featured`)
     const superRareGamesText = await superRareGamesResponse.text()
     const superRareGames = mapGames(superRareGamesText, superRareUrl)
   
