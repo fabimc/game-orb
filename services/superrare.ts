@@ -5,7 +5,7 @@ const superRareUrl = 'https://superraregames.com' as const
 
 const mapGames = (webpage: string, siteUrl: string) => {
   const $ = cheerio.load(webpage)
-  const gamesSelector = $('.product-card:not(:has(badge--sold-out))')
+  const gamesSelector = $('.product-card:not(:has(.badge--sold-out))')
 
   const games = gamesSelector
     .map((_i: number, el: cheerio.Element) => {
