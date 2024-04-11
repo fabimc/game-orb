@@ -1,6 +1,6 @@
 import { FreshContext } from '$fresh/server.ts'
 import { getGames as getGamesFromBrand } from '../../../services/games.ts'
-import { Game } from "../../../types/game.type.ts";
+import { Game } from '../../../types/game.type.ts'
 
 const getGames = async (brand: string): Promise<Game[]> => {
   try {
