@@ -1,8 +1,6 @@
 import { cheerio } from 'https://deno.land/x/denocheerio@1.0.0/mod.ts'
 import { Game } from '../types/game.type.ts'
 
-const limitedRunUrl = 'https://limitedrungames.com' as const
-
 const mapGames = (webpage: string, siteUrl: string) => {
   const $ = cheerio.load(webpage)
   const gamesSelector = $('.product--default')
@@ -23,7 +21,7 @@ const mapGames = (webpage: string, siteUrl: string) => {
   return singles as Game[]
 }
 
-export const getGames = async () => {
+export const getGames = async (limitedRunUrl: string) => {
   try {
     const limitedRunResponse = await fetch(`${limitedRunUrl}/collections/nintendo-switch-games`)
     const limitedRunText = await limitedRunResponse.text()

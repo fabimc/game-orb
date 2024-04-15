@@ -1,8 +1,6 @@
 import { cheerio } from 'https://deno.land/x/denocheerio@1.0.0/mod.ts'
 import { Game } from '../types/game.type.ts'
 
-const superRareUrl = 'https://superraregames.com' as const
-
 const mapGames = (webpage: string, siteUrl: string) => {
   const $ = cheerio.load(webpage)
   const gamesSelector = $('.product-card:not(:has(.badge--sold-out))')
@@ -25,16 +23,15 @@ const mapGames = (webpage: string, siteUrl: string) => {
   return singles as Game[]
 }
 
-export const getGames = async () => {
+export const getGames = async (superRareUrl: string) => {
   try {
     const superRareGamesResponse = await fetch(`${superRareUrl}/collections/featured`)
     const superRareGamesText = await superRareGamesResponse.text()
     const superRareGames = mapGames(superRareGamesText, superRareUrl)
-  
+
     return superRareGames
   } catch (error) {
     console.error('Error fetching SuperRare Games', error)
     return []
   }
-  
 }
