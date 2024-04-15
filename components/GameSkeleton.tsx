@@ -1,4 +1,4 @@
-export default function GameSkeleton() {
+const GameSkeleton = () => {
   return (
     <div class='w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col'>
       <div class='w-60 h-80 rounded-md mx-auto mt-1'>
@@ -13,3 +13,5 @@ export default function GameSkeleton() {
     </div>
   )
 }
+
+export default GameSkeleton
