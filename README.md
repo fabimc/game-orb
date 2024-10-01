@@ -1,6 +1,7 @@
 # Game Orb
 
-This site simply scraps websites' public shops and group them by Switch "single" games (no steelbooks or CEs).
+This site simply scraps websites' public shops and group them by Switch "single"
+games (no steelbooks or CEs).
 
 ### Usage
 
