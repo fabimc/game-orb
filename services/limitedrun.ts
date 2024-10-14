@@ -12,7 +12,7 @@ const mapGames = (webpage: string, siteUrl: string) => {
       const url = siteUrl + $(el).find("a").first().attr("href");
       const price = $(el).find(".price").first().text();
 
-      return { name, image, url, price };
+      return { name, image, url, price } as Game;
     })
     .get();
 
